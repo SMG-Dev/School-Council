@@ -118,7 +118,7 @@ footer {
 	width: 100%;
 	/*background-color: transparent;*/
 	padding: 45px 0;
-	background-color: #009688;
+	background-color: #000;
 }
 .btn.btn-success  {
 	background-color: #009688 !important;
@@ -189,4 +189,9 @@ ul.social li {
 .tabs-wrapper>.md-pills>.nav-item.active {
 	color: inherit;
 	background-color: rgba(255,255,255,.1);
+}
+
+ul.equal li .panel-body {
+    height: 293px;
+    background-color: white;
 }
