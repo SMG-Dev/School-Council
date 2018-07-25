@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <jsp:directive.page contentType="text/html; charset=UTF-8"
+                        pageEncoding="UTF-8" session="false" />
+    <div th:replace="base/template :: meta"></div>
+</head>
+<body cz-shortcut-listen="true">
+<div th:replace="base/template :: header"></div>
+
+
+<div class="container">
+    <div class="panel panel-primary">
+        <div class="panel-heading">
+            <h4 th:text="${video.name}"></h4>
+        </div>
+        <div class="panel-body">
+            <iframe th:src="${video.sourceUrl}" allowfullscreen="" width="560" height="315" frameborder="0"></iframe>
+            <h3 th:text="${video.label}"></h3>
+        </div>
+    </div>
+    <div class="panel panel-primary">
+        <div class="panel-heading">
+            <h4 id="commentsText" style="-moz-user-select: none; -webkit-user-select: none; -ms-user-select:none; user-select:none;-o-user-select:none;" unselectable="on" onselectstart="return false;" onmousedown="return false;">Коментари: <span id="number" class="badge" th:text="${number}"></span></h4>
+        </div>
+        <div class="panel-body">
+            <form th:if="${session != null && session.user != null && session.user.id != -1}" method="post" th:action="@{/videos/}+${video.id}+@{/comment}" class="form-group is-empty">
+                Коментар:
+                <textarea id="text" th:value="*{text}" name="text" class="form-control"></textarea>
+                <button type="submit" id="publish" class="btn btn-raised btn-success btn-block">Публикувай</button>
+            </form>
+            <div th:unless="${session != null && session.user != null && session.user.id != -1}">
+                <a href="/user/login">Влез</a> в системата ни, за да можеш да коментираш.
+            </div>
+            <div id="comments_container" style="width: 100%">
+                <div th:each="comment : ${comments}">
+                    <div>
+                        <h4>
+                            <b><span id="author" th:text="${comment.user.name}"></span>
+                               <small style="float: right;"><time th:text="${comment.time}"></time></small>
+                            </b>
+                        </h4>
+                        <p th:text="${comment.text}"></p>
+                    </div>
+                    <hr>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div th:replace="base/template :: footer"></div>
+<div th:replace="base/template :: js"></div>
+</body>
+</html>

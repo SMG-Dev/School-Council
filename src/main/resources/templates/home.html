@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <jsp:directive.page contentType="text/html; charset=UTF-8"
+                        pageEncoding="UTF-8" session="false" />
+    <div th:replace="base/template :: meta"></div>
+</head>
+<body cz-shortcut-listen="true">
+    <div th:replace="base/template :: header"></div>
+
+    <div class="jumbotron">
+        <div class="container">
+            <center>
+                <img style="background-color: rgba(0,0,0,0);" src="/img/logo.png">
+                <h1 class="display-3"><span>We develop new learning methods</span></h1>
+            </center>
+        </div>
+    </div>
+
+    <ul class="row">
+        <li class="col-md-6 col-sm-12 col-xs-12">
+            <div class="panel panel-primary">
+                <div class="panel-heading">
+                    <h3 class="list-title">Тракове</h3>
+                </div>
+                <div class="panel-body">
+                    <ul class="footer-list">
+                        <span class="set" th:each="track: ${tracks}">
+                            <li class="course-item">
+                                <h2><span th:text="${track.name}"></span> <a th:href="@{/track/} + ${track.id}"><i class="fa fa-arrow-circle-right right-arrow" aria-hidden="true"></i></a></h2>
+                                <p>Трак '<strong th:text="${track.name}"></strong>'</p>
+                            </li>
+                        </span>
+                        <li><a href="/trainings/tracks" style="margin-left: 10px; color: white !important;" class="btn btn-raised btn-success">Виж всички</a></li>
+                    </ul>
+                </div>
+            </div>
+        </li>
+        <li class="col-md-6 col-sm-12 col-xs-12">
+            <div class="panel panel-primary">
+                <div class="panel-heading">
+                    <h3 class="list-title">Курсове</h3>
+                </div>
+                <div class="panel-body">
+                    <ul class="footer-list">
+                        <span th:each="course: ${courses}">
+                            <li class="course-item">
+                                <h2><span th:text="${course.name}"></span> <a th:href="@{/courses/} + ${course.id}"><i class="fa fa-arrow-circle-right right-arrow" aria-hidden="true"></i></a></h2>
+                                <p>Част от трака '<strong th:text="${course.track.name}"></strong>'</p>
+                            </li>
+                        </span>
+                        <li><a href="/trainings/courses" style="margin-left: 10px; color: white !important;" class="btn btn-raised btn-success">Виж всички</a></li>
+                    </ul>
+                </div>
+            </div>
+        </li>
+    </ul>
+
+    <div th:replace="base/template :: footer"></div>
+    <div th:replace="base/template :: js"></div>
+</body>
+</html>

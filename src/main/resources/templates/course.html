@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <jsp:directive.page contentType="text/html; charset=UTF-8"
+                        pageEncoding="UTF-8" session="false" />
+    <div th:replace="base/template :: meta"></div>
+</head>
+<body cz-shortcut-listen="true">
+<div th:replace="base/template :: header"></div>
+<div class="container">
+    <div class="panel panel-primary">
+        <div class="panel-heading">
+            <h4 th:text="${course.name}"></h4>
+        </div>
+        <div class="panel-body">
+            <div th:each="video: ${videos}">
+                <div class="course-item col-md-4 equal">
+                    <h2 th:text="${video.name}"></h2>
+                    <a th:if="${video.sourceUrl !='#'}" th:href="@{/videos/} + ${video.id}" role="button" class="btn btn-raised active">Видео »</a>
+                    <a th:if="${video.examLink !='#'}" th:href="${video.examLink}" role="button" class="btn btn-raised btn-success">Задачи »</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div th:replace="base/template :: footer"></div>
+<div th:replace="base/template :: js"></div>
+</body>
+</html>
