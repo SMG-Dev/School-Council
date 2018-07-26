@@ -10,7 +10,7 @@ import java.io.Serializable;
 public class User implements Secured, Serializable, SMG.SchoolCouncilPanel.entities.base.Entity {
 
 	private int id;
-	private String name, username, email;
+	private String name, telephone, custom;
 	private String password;
 	private String role;
 
@@ -19,11 +19,11 @@ public class User implements Secured, Serializable, SMG.SchoolCouncilPanel.entit
 		this(-1,"Guest","","","","None");
 	}
 
-	private User (int id, String name, String username, String email, String password, String role) {
+	private User (int id, String name, String telephone, String custom, String password, String role) {
 		setId (id);
 		setName (name);
-		setUsername (username);
-		setEmail (email);
+		setCustom (custom);
+		setTelephone (telephone);
 		setPassword (password);
 		setRole (role);
 	}
@@ -37,12 +37,12 @@ public class User implements Secured, Serializable, SMG.SchoolCouncilPanel.entit
 		this.name = name;
 	}
 
-	public void setUsername (String username) {
-		this.username = username;
+	public void setTelephone (String telephone) {
+		this.telephone = telephone;
 	}
 
-	public void setEmail (String email) {
-		this.email = email;
+	public void setCustom (String custom) {
+		this.custom = custom;
 	}
 
 	public void setPassword (String password) {
@@ -65,14 +65,14 @@ public class User implements Secured, Serializable, SMG.SchoolCouncilPanel.entit
 		return name;
 	}
 
-	@Column(name = "username")
-	public String getUsername() {
-		return username;
+	@Column(name = "telephone")
+	public String getTelephone() {
+		return telephone;
 	}
 
-	@Column(name = "email")
-	public String getEmail() {
-		return email;
+	@Column(name = "custom")
+	public String getCustom() {
+		return custom;
 	}
 
 	@Column(name = "password")

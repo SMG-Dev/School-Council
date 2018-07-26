@@ -19,7 +19,7 @@ public class Club implements Serializable, SMG.SchoolCouncilPanel.entities.base.
 		this(-1, -1, -1, "Untitled","","Never");
 	}
 
-	private Club (int id, int organizerId, int alternateId, String name, String description, String dateTime) {
+	protected Club (int id, int organizerId, int alternateId, String name, String description, String dateTime) {
 		setId (id);
 		setOrganizerId (organizerId);
 		setAlternateId (alternateId);

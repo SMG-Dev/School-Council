@@ -14,12 +14,11 @@ public class Activity implements Serializable, SMG.SchoolCouncilPanel.entities.b
 	private String name;
 	private String dateTime;
 
-	/* create guest user */
 	public Activity () {
 		this(-1, -1, -1, "Untitled","","Never");
 	}
 
-	private Activity (int id, int organizerId, int alternateId, String name, String description, String dateTime) {
+	protected Activity (int id, int organizerId, int alternateId, String name, String description, String dateTime) {
 		setId (id);
 		setOrganizerId (organizerId);
 		setAlternateId (alternateId);
