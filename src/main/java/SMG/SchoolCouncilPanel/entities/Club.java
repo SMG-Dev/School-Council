@@ -14,7 +14,6 @@ public class Club implements Serializable, SMG.SchoolCouncilPanel.entities.base.
 	private String name;
 	private String dateTime;
 
-	/* create guest user */
 	public Club () {
 		this(-1, -1, -1, "Untitled","","Never");
 	}

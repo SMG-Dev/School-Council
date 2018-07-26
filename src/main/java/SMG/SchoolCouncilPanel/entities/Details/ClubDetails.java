@@ -1,10 +1,9 @@
 package SMG.SchoolCouncilPanel.entities.Details;
 
 import SMG.SchoolCouncilPanel.entities.Club;
-import SMG.SchoolCouncilPanel.entities.User;
 
 public class ClubDetails extends Club {
-	private String contacts;
+	public String contacts;
 
 	public ClubDetails (Club c)
 	{

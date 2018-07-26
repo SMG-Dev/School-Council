@@ -11,6 +11,9 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import SMG.SchoolCouncilPanel.repositories.base.GenericRepository;
 
+import java.awt.*;
+import java.util.stream.Collectors;
+
 
 @Controller
 public class HomeController {
@@ -40,6 +43,7 @@ public class HomeController {
 						.map (
 								x -> ClubDetailsUntil.getFullClub (userRepo, x)
 						)
+						.collect (Collectors.toList ())
 		);
 		return "clubs";
 	}
@@ -52,6 +56,7 @@ public class HomeController {
 						.map (
 								x -> ActivityDetailsUntil.getFullActivity (userRepo, x)
 						)
+						.collect (Collectors.toList ())
 		);
 		return "activities";
 	}
