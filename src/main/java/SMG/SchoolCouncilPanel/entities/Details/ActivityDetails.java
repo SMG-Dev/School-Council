@@ -7,7 +7,7 @@ public class ActivityDetails extends Activity {
 
 	public ActivityDetails (Activity c)
 	{
-		super (c.getId (), c.getOrganizerId (), c.getAlternateId (), c.getName (), c.getDescription (), c.getDateTime ());
+		super (c.getId (), c.getOrganizerId (), c.getAlternateId (), c.getName (), c.getDescription (), c.getDateTime (), c.getArchive());
 	}
 
 	public String getContacts () { return this.contacts; }

@@ -19,7 +19,7 @@ public class ActivityDetailsUntil {
 			answer.setContacts (
 					user
 					.stream ()
-					.map (x -> x.getName () + ":" + x.getTelephone () + UserUtils.getExtendedCustom (x))
+					.map (x -> x.getName () + ": <a style=\"color: white; text-decoration: underline;\" href=\"tel:" + x.getTelephone () + "\">"  + x.getTelephone () + "</a>" +  UserUtils.getExtendedCustom (x) + "<br>")
 					.reduce("", String::concat)
 			);
 		return answer;

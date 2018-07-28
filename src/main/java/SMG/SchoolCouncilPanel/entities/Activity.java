@@ -13,18 +13,20 @@ public class Activity implements Serializable, SMG.SchoolCouncilPanel.entities.b
 	private String description;
 	private String name;
 	private String dateTime;
+	private boolean archive;
 
 	public Activity () {
-		this(-1, -1, -1, "Untitled","","Never");
+		this(-1, -1, -1, "Untitled","","Never", false);
 	}
 
-	protected Activity (int id, int organizerId, int alternateId, String name, String description, String dateTime) {
+	protected Activity (int id, int organizerId, int alternateId, String name, String description, String dateTime, boolean archive) {
 		setId (id);
 		setOrganizerId (organizerId);
 		setAlternateId (alternateId);
 		setName (name);
 		setDescription (description);
 		setDateTime (dateTime);
+		setArchive (archive);
 	}
 
 	@Override
@@ -50,6 +52,10 @@ public class Activity implements Serializable, SMG.SchoolCouncilPanel.entities.b
 
 	public void setDateTime (String dateTime) {
 		this.dateTime = dateTime;
+	}
+
+	public void setArchive (boolean archive) {
+		this.archive = archive;
 	}
 
 	@Id
@@ -84,4 +90,8 @@ public class Activity implements Serializable, SMG.SchoolCouncilPanel.entities.b
 		return dateTime;
 	}
 
+	@Column(name = "archive")
+	public boolean getArchive () {
+		return archive;
+	}
 }
